@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useState} from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -35,7 +35,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchBar() {
+const SearchBar = ({onChange}) => {
   return (
           <Search style={{backgroundColor: '#f2f2f2', display: 'flex'}}>
             <SearchIconWrapper>
@@ -45,7 +45,10 @@ export default function SearchBar() {
               placeholder="Pokemon zoeken"
               inputProps={{ 'aria-label': 'search' }}
               style={{flexGrow: 1}}
+              onChange={onChange}
             />
           </Search>
   );
 }
+
+export default SearchBar;
