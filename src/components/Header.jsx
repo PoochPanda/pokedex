@@ -11,7 +11,6 @@ const Header = ({children, title, onFavourite}) => {
                     {
                         [children].map(
                             (item) =>
-
                                 <IconButton onClick={onFavourite} aria-label="upload picture" component="label">
                                     {item}
                                 </IconButton>

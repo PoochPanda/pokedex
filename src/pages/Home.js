@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getFavourites, getPokemons, savePokemons } from "../utils/storage.utils";
+import { getFavourites, getPokemons, savePokemons, getTeam } from "../utils/storage.utils";
 import Main from "../components/Main";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import SearchBar from "../components/SearchBar";
@@ -50,10 +50,10 @@ function Home() {
                     <Header title="Pokédex">
                         <FilterAltIcon />
                     </Header>
-                    <SearchBar onChange={onTyping} onVal={text} />
+                    <SearchBar onChange={onTyping} />
                     <nav style={{ display: 'flex', gap: 10, flexBasis: '100px' }}>
-                        <Button destination="team" backgroundColor="purple" title="Mijn team" count={getFavourites()?.count} />
-                        <Button destination="favourites" backgroundColor="turquoise" title="Favorieten" count={getFavourites()?.count} />
+                        <Button destination="team" backgroundColor="purple" title="Mijn team" count={getTeam()?.length} />
+                        <Button destination="favourites" backgroundColor="turquoise" title="Favorieten" count={getFavourites()?.length} />
                     </nav>
 
                     <Main searchString={text}></Main>
